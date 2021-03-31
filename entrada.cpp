@@ -95,7 +95,6 @@ void Entrada::imprimiDados(vector<int> &dados)
 // Imprime os dados do arquivo
 void Entrada::imprimiArquivo()
 {
-    cout << "---" << endl;
     for (int i = 0; i < dadosCentral.size(); i++)
     {
         cout << dadosCentral[i] << endl;

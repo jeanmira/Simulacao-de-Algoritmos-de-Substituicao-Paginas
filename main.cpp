@@ -9,6 +9,7 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     char automatizado;
+    string nome;
     vector<int> dados;
 
     cout << "Deseja colocar o nome do arquivo manualmente? Digite <s> para SIM e <n> para NAO: ";
@@ -17,25 +18,25 @@ int main(int argc, char const *argv[])
     // Se o usuario digitar 's' pega o nome do arquivo direto na main.cpp
     if (automatizado == 's')
     {
-        Entrada arquivo();
+        Entrada arquivo("vsim-belady.docx");
         arquivo.retornaArquivo(dados);
+        // Imprimi o arquivo
+        arquivo.imprimiArquivo();
     }
     // Se o usuario digitar 'n' pega o nome do arquivo no terminal
     else if (automatizado == 'n')
     {
-        string nome;
         cout << "Qual o nome do arquivo: ";
         cin >> nome;
         Entrada arquivo(nome);
         arquivo.retornaArquivo(dados);
+        // Imprimi o arquivo
+        arquivo.imprimiArquivo();
     }
     else
     {
         cout << "Erro na resposta. Execute novamente!" << endl;
     }
-
-    // Imprimi o arquivo
-    arquivo.imprimiArquivo();
 
     return 0;
 }
