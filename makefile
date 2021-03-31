@@ -31,7 +31,11 @@ APPNAME = $(wildcard *.cpp)
 
 # Compila e executa o programa e depois apaga todos os arquivos .o e o
 # Executável criado
-all: run clean
+all: diretorio run clean
+
+# Converte todos os arquivos .docx para .txt
+diretorio:
+	python3 converte.py
 
 # Limpa o terminal de verdade
 limpa:
