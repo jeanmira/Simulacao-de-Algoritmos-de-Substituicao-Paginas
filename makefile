@@ -18,10 +18,10 @@ FLAGS =
 O = *.o 
 
 # Variáveis ou flag de Thread
-THREAD = -lpthread
+#THREAD = -lpthread
 
 # Nome do executável
-EXE = exe
+EXE = simulador
 
 # Comando para limpar arquivo
 RM = rm -rf 
@@ -31,11 +31,7 @@ APPNAME = $(wildcard *.cpp)
 
 # Compila e executa o programa e depois apaga todos os arquivos .o e o
 # Executável criado
-all: diretorio run clean
-
-# Converte todos os arquivos .docx para .txt
-diretorio:
-	python3 converte.py
+all: run clean
 
 # Limpa o terminal de verdade
 limpa:
@@ -46,13 +42,13 @@ run:
 	$(CC) $(FLAGS) -c $(APPNAME)
 	$(CC) $(FLAGS) -o $(EXE) $(O) $(THREAD)
 #gdb 
-	./$(EXE)
-# 
+#./$(EXE)
+
 
 # Apaga todos os arquivos .o é o executável criado
 clean:
 	$(RM) $(O)
-	$(RM) $(EXE)
+	#$(RM) $(EXE)
 
 .PHONY: all clean
 #------------------------------------------------------------------------------#

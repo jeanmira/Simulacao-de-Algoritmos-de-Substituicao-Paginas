@@ -2,40 +2,26 @@
 #include <vector>
 #include <string>
 
-#include "entrada.h"
-
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-    char automatizado;
-    string nome;
     vector<int> dados;
+    int entrada;
+    int quadros = 0;
 
-    cout << "Deseja colocar o nome do arquivo manualmente? Digite <s> para SIM e <n> para NAO: ";
-    cin >> automatizado;
+    quadros = atoi(argv[1]);
+    while ((!feof(stdin)))
+    {
+        scanf("%d\n", &entrada);
+        dados.push_back(entrada);
+    }
+    cout << quadros << endl
+         << endl;
 
-    // Se o usuario digitar 's' pega o nome do arquivo direto na main.cpp
-    if (automatizado == 's')
+    for (int j = 0; j < dados.size(); j++)
     {
-        Entrada arquivo("vsim-belady.docx");
-        arquivo.retornaArquivo(dados);
-        // Imprimi o arquivo
-        arquivo.imprimiArquivo();
-    }
-    // Se o usuario digitar 'n' pega o nome do arquivo no terminal
-    else if (automatizado == 'n')
-    {
-        cout << "Qual o nome do arquivo: ";
-        cin >> nome;
-        Entrada arquivo(nome);
-        arquivo.retornaArquivo(dados);
-        // Imprimi o arquivo
-        arquivo.imprimiArquivo();
-    }
-    else
-    {
-        cout << "Erro na resposta. Execute novamente!" << endl;
+        cout << dados[j] << endl;
     }
 
     return 0;
