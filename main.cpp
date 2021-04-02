@@ -21,9 +21,12 @@ int main(int argc, char *argv[])
     }
 
     Pagina p1(quadros, dados);
+    cout << quadros << " quadros" << endl;
+    cout << dados.size() << " refs" << endl;
     Substituicao init(p1);
 
     init.fifo();
+    init.lru();
 
     return 0;
 }

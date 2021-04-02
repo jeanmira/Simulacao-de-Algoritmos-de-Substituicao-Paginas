@@ -83,3 +83,24 @@ bool Pagina::verificaValorDeReferenciaEmQuadros(int i)
     }
     return false;
 }
+
+int Pagina::getPosicaoDeReferenciaEmQuadros(int i)
+{
+    for (int j = 0; j < quadros.size(); j++)
+    {
+        if (referencias[i] == quadros[j])
+        {
+            return j;
+        }
+    }
+    return -1;
+}
+
+void Pagina::reiniciaParametros()
+{
+    for (int i = 0; i < quadros.size(); i++)
+    {
+        this->quadros[i] = -1;
+        this->tempos[i] = 0;
+    }
+}

@@ -29,6 +29,8 @@ public:
     int getQuadrosSize();
     int getPosicaoMenorTempo();
     bool verificaValorDeReferenciaEmQuadros(int i);
+    int getPosicaoDeReferenciaEmQuadros(int i);
+    void reiniciaParametros();
 };
 
 #endif
