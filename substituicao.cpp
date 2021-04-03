@@ -85,7 +85,6 @@ void Substituicao::opt()
                     P.setQuadros(P.getReferencias(i), j);
                 }
                 cont++;
-
                 break;
             }
         }
