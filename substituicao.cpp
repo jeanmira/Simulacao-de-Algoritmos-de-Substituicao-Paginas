@@ -64,6 +64,32 @@ void Substituicao::lru()
 void Substituicao::opt()
 {
     P.reiniciaParametros();
-    
-    cout << "OPT: " << 1 << " PFs" << endl;
+    int cont = 1;
+    for (int i = 0; i < P.getReferenciasSize(); i++)
+    {
+        for (int j = 0; j < P.getQuadrosSize(); j++)
+        {
+            //cout << "menor: " << P.getPosicaoMenorTempo() << endl;
+            if (j == P.getPosicaoMenorTempo() && !P.verificaValorDeReferenciaEmQuadros(i))
+            {
+                //cout << "O valor e: " << P.getReferencias(i) << endl;
+                if (P.getQuadrosCheio())
+                {
+                    //cout << "p: " << P.getMaiorDiferenca() << endl;
+                    P.setTempos(cont, P.getMaiorDiferenca(i + 1));
+                    P.setQuadros(P.getReferencias(i), P.getMaiorDiferenca(i + 1));
+                }
+                else
+                {
+                    P.setTempos(cont, j);
+                    P.setQuadros(P.getReferencias(i), j);
+                }
+                cont++;
+
+                break;
+            }
+        }
+    }
+    cont--;
+    cout << "OPT: " << cont << " PFs" << endl;
 }

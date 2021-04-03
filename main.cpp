@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 
     init.fifo();
     init.lru();
+    init.opt();
 
     return 0;
 }

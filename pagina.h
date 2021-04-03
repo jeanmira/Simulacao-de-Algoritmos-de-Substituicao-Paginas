@@ -31,6 +31,8 @@ public:
     bool verificaValorDeReferenciaEmQuadros(int i);
     int getPosicaoDeReferenciaEmQuadros(int i);
     void reiniciaParametros();
+    int getMaiorDiferenca(int inicial);
+    bool getQuadrosCheio();
 };
 
 #endif
