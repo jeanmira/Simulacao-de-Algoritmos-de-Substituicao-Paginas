@@ -4,6 +4,8 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <queue>
+#include <list>
 #include "pagina.h"
 
 using namespace std;

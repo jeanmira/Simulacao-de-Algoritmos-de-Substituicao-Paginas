@@ -11,84 +11,112 @@ Substituicao::~Substituicao()
 void Substituicao::fifo()
 {
     P.reiniciaParametros();
-    int cont = 1;
-    for (int i = 0; i < P.getReferenciasSize(); i++)
-    {
-        for (int j = 0; j < P.getQuadrosSize(); j++)
-        {
-            //cout << "menor: " << P.getPosicaoMenorTempo() << endl;
-            if (j == P.getPosicaoMenorTempo() && !P.verificaValorDeReferenciaEmQuadros(i))
-            {
+    queue<int> t;
+    long int pf = 0;
+    long int pf_ini = 0;
+    int j = 0;
 
-                P.setTempos(cont, j);
-                P.setQuadros(P.getReferencias(i), j);
-                cont++;
-                // cout << cont << " | " << P.getQuadros(0) << " " << P.getQuadros(1) << " " << P.getQuadros(2) << " " << P.getQuadros(3) << " | " << P.getTempos(0) << " " << P.getTempos(1) << " " << P.getTempos(2) << " " << P.getTempos(3) << endl;
-                break;
+    while (pf_ini < P.getQuadrosSize() && j < P.getReferenciasSize())
+    {
+        if (!P.verificaValorDeReferenciaEmQuadros(j))
+        {
+            P.setQuadros(P.getReferencias(j), pf_ini);
+            t.push(P.getReferencias(j));
+            pf_ini++;
+        }
+        j++;
+    }
+
+    pf = pf_ini;
+    for (int i = j; i < P.getReferenciasSize(); i++)
+    {
+        if (!P.verificaValorDeReferenciaEmQuadros(i))
+        {
+            t.push(P.getReferencias(i));
+            for (int k = 0; k < P.getQuadrosSize(); k++)
+            {
+                if (P.getQuadros(k) == t.front())
+                {
+                    P.setQuadros(P.getReferencias(i), k);
+                }
             }
+            if (t.size() > P.getQuadrosSize())
+            {
+                t.pop();
+            }
+            pf++;
         }
     }
-    cont--;
-    cout << "FIFO: " << cont << " PFs" << endl;
+    cout << "FIFO: " << pf << " PFs" << endl;
 }
 
 void Substituicao::lru()
 {
     P.reiniciaParametros();
-    int cont = 1, cont2 = 0;
-    for (int i = 0; i < P.getReferenciasSize(); i++)
-    {
-        for (int j = 0; j < P.getQuadrosSize(); j++)
-        {
-            //cout << "menor: " << P.getPosicaoMenorTempo() << endl;
-            if (j == P.getPosicaoMenorTempo() && !P.verificaValorDeReferenciaEmQuadros(i))
-            {
 
-                P.setTempos(cont, j);
-                P.setQuadros(P.getReferencias(i), j);
-                cont++;
-                cont2++;
-                //cout << cont << " | " << P.getQuadros(0) << " " << P.getQuadros(1) << " " << P.getQuadros(2) << " " << P.getQuadros(3) << " | " << P.getTempos(0) << " " << P.getTempos(1) << " " << P.getTempos(2) << " " << P.getTempos(3) << endl;
-                break;
-            }
-            else if (j == P.getPosicaoMenorTempo() && P.verificaValorDeReferenciaEmQuadros(i))
+    list<int> t;
+    long int pf = 0;
+    long int pf_ini = 0;
+    int j = 0;
+
+    while (pf_ini < P.getQuadrosSize() && j < P.getReferenciasSize())
+    {
+        if (!P.verificaValorDeReferenciaEmQuadros(j))
+        {
+            P.setQuadros(P.getReferencias(j), pf_ini);
+            t.push_back(P.getReferencias(j));
+            pf_ini++;
+        }
+        else
+        {
+            t.remove(P.getReferencias(j));
+            t.push_back(P.getReferencias(j));
+        }
+        j++;
+    }
+
+    pf = pf_ini;
+    for (int i = j; i < P.getReferenciasSize(); i++)
+    {
+        if (!P.verificaValorDeReferenciaEmQuadros(i))
+        {
+            t.push_back(P.getReferencias(i));
+            for (int k = 0; k < P.getQuadrosSize(); k++)
             {
-                P.setTempos(cont, P.getPosicaoDeReferenciaEmQuadros(i));
-                cont++;
-                break;
+                if (P.getQuadros(k) == t.front())
+                {
+                    P.setQuadros(P.getReferencias(i), k);
+                }
             }
+            if (t.size() > P.getQuadrosSize())
+            {
+                t.pop_front();
+            }
+            pf++;
+        }
+        else
+        {
+            t.remove(P.getReferencias(i));
+            t.push_back(P.getReferencias(i));
         }
     }
-    cout << "LRU: " << cont2 << " PFs" << endl;
+    cout << "LRU: " << pf << " PFs" << endl;
 }
+
 void Substituicao::opt()
 {
+
     P.reiniciaParametros();
-    int cont = 1;
+    queue<int> t;
+    long int pf = 0;
+
     for (int i = 0; i < P.getReferenciasSize(); i++)
     {
-        for (int j = 0; j < P.getQuadrosSize(); j++)
+        if (!P.verificaValorDeReferenciaEmQuadros(i))
         {
-            //cout << "menor: " << P.getPosicaoMenorTempo() << endl;
-            if (j == P.getPosicaoMenorTempo() && !P.verificaValorDeReferenciaEmQuadros(i))
-            {
-                //cout << "O valor e: " << P.getReferencias(i) << endl;
-                if (P.getQuadrosCheio())
-                {
-                    //cout << "p: " << P.getMaiorDiferenca() << endl;
-                    P.setTempos(cont, P.getMaiorDiferenca(i + 1));
-                    P.setQuadros(P.getReferencias(i), P.getMaiorDiferenca(i + 1));
-                }
-                else
-                {
-                    P.setTempos(cont, j);
-                    P.setQuadros(P.getReferencias(i), j);
-                }
-                cont++;
-                break;
-            }
+            P.setQuadros(P.getReferencias(i), P.getMaiorDiferenca(i + 1));
+            pf++;
         }
     }
-    cont--;
-    cout << "OPT: " << cont << " PFs" << endl;
+    cout << "OPT: " << pf << " PFs" << endl;
 }

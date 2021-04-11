@@ -117,10 +117,8 @@ int Pagina::getMaiorDiferenca(int inicial)
 
     for (int j = 0; j < quadros.size(); j++)
     {
-        //cout << "q" << j << endl;
         for (int i = inicial; i < referencias.size(); i++)
         {
-            //cout << "--" << quadros[j] << " " << referencias[i] << endl;
             if (quadros[j] == referencias[i])
             {
                 aux[j] = i;
@@ -132,20 +130,14 @@ int Pagina::getMaiorDiferenca(int inicial)
             }
         }
     }
-    //cout << "I: " << inicial << " lista: ";
     for (int i = 0; i < aux.size(); i++)
     {
-        //cout << aux[i] << " ";
         if (temp < aux[i])
         {
             temp = aux[i];
             posicao = i;
-
-            // cout << "Naquele momento: " << tempos[i] << " p: " << i << endl;
         }
     }
-    //cout << endl;
-    //cout << "Posicao: " << posicao << endl;
     return posicao;
 }
 
