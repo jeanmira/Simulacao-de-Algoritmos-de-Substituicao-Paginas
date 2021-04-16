@@ -1,13 +1,17 @@
 #include "substituicao.h"
 
+//---- Construtor padrão
 Substituicao::Substituicao(Pagina P)
 {
     this->P = P;
 }
+
+//---- Destrutor padrão
 Substituicao::~Substituicao()
 {
 }
 
+//---- Método de substituição de página First In, First Out (FIFO)
 void Substituicao::fifo()
 {
     P.reiniciaParametros();
@@ -50,6 +54,7 @@ void Substituicao::fifo()
     cout << "FIFO: " << pf << " PFs" << endl;
 }
 
+//---- Método de substituição de página Least Recently Used (LRU)
 void Substituicao::lru()
 {
     P.reiniciaParametros();
@@ -103,6 +108,7 @@ void Substituicao::lru()
     cout << "LRU: " << pf << " PFs" << endl;
 }
 
+//---- Método de substituição de página Algoritmo Ótimo (OPT)
 void Substituicao::opt()
 {
 

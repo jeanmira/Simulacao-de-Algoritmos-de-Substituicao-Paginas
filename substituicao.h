@@ -13,15 +13,15 @@ using namespace std;
 class Substituicao
 {
 private:
-    Pagina P;
-    vector<int> pf;
+    Pagina P;       // Variável do tipo página que contém a quantidade de páginas e os valores de referência
+    vector<int> pf; // Vetor de inteiros que guarda a quantidade de page fault
 
 public:
     Substituicao(Pagina P); // Construtor padrão
-    ~Substituicao();        // Construtor padrão
-    void fifo();
-    void lru();
-    void opt();
+    ~Substituicao();        // Destrutor padrão
+    void fifo();            // Método de substituição de página First In, First Out (FIFO)
+    void lru();             // Método de substituição de página Least Recently Used (LRU)
+    void opt();             // Método de substituição de página Algoritmo Ótimo (OPT)
 };
 
 #endif

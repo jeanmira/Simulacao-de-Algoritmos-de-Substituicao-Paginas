@@ -49,7 +49,7 @@ run:
 # Apaga todos os arquivos .o é o executável criado
 clean:
 	$(RM) $(O)
-	#$(RM) $(EXE)
+# $(RM) $(EXE)
 
 .PHONY: all clean
 #------------------------------------------------------------------------------#

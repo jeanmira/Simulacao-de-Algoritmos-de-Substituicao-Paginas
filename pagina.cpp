@@ -1,10 +1,12 @@
 
 #include "pagina.h"
 
+//---- Construtor
 Pagina::Pagina()
 {
 }
 
+//---- Construtor por cópia
 Pagina::Pagina(const Pagina &outro)
 {
 
@@ -13,6 +15,7 @@ Pagina::Pagina(const Pagina &outro)
     this->tempos = outro.tempos;
 }
 
+//---- Construtor padrão
 Pagina::Pagina(int q, vector<int> &r)
 {
     for (int i = 0; i < q; i++)
@@ -26,37 +29,54 @@ Pagina::Pagina(int q, vector<int> &r)
     }
 }
 
+//---- Destrutor padrão
 Pagina::~Pagina()
 {
 }
+
+//---- Altera o valor de quadro especificado
 void Pagina::setQuadros(int r, int i)
 {
     this->quadros[i] = r;
 }
+
+//---- Altera o valor de tempo especificado
 void Pagina::setTempos(int r, int i)
 {
     this->tempos[i] = r;
 }
+
+//---- Retorna o valor de tempo especificado
 int Pagina::getTempos(int i)
 {
     return this->tempos[i];
 }
+
+//---- Retorna o valor de quadro especificado
 int Pagina::getQuadros(int i)
 {
     return this->quadros[i];
 }
+
+//---- Retorna o valor de referência especificado
 int Pagina::getReferencias(int i)
 {
     return this->referencias[i];
 }
+
+//---- Retorna o tamanho do vetor de referências
 int Pagina::getReferenciasSize()
 {
     return this->referencias.size();
 }
+
+//---- Retorna o tamanho do vetor de quadros
 int Pagina::getQuadrosSize()
 {
     return this->quadros.size();
 }
+
+//---- Retorna a posição do menor tempo, do vetor de tempos
 int Pagina::getPosicaoMenorTempo()
 {
     int aux = referencias.size() + 1, posicao = 0;
@@ -72,6 +92,7 @@ int Pagina::getPosicaoMenorTempo()
     return posicao;
 }
 
+//---- Verifica se o valor da referência já está dentro do vetor de quadros
 bool Pagina::verificaValorDeReferenciaEmQuadros(int i)
 {
     for (int j = 0; j < quadros.size(); j++)
@@ -84,6 +105,7 @@ bool Pagina::verificaValorDeReferenciaEmQuadros(int i)
     return false;
 }
 
+//---- Retorna a posição que se encontra a referência dentro do vetor de quadros
 int Pagina::getPosicaoDeReferenciaEmQuadros(int i)
 {
     for (int j = 0; j < quadros.size(); j++)
@@ -96,6 +118,7 @@ int Pagina::getPosicaoDeReferenciaEmQuadros(int i)
     return -1;
 }
 
+//---- Zera os quadros e tempos para próxima análise
 void Pagina::reiniciaParametros()
 {
     for (int i = 0; i < quadros.size(); i++)
@@ -105,6 +128,7 @@ void Pagina::reiniciaParametros()
     }
 }
 
+//---- Função que retorna a última referência a ser utilizada dado a posição inicial
 int Pagina::getMaiorDiferenca(int inicial)
 {
     int temp = 0, posicao = 0;
@@ -141,6 +165,7 @@ int Pagina::getMaiorDiferenca(int inicial)
     return posicao;
 }
 
+//---- Retorna verdadeiro ou falso para condição onde o vetor de quadros está cheio
 bool Pagina::getQuadrosCheio()
 {
     int contador = 0;
