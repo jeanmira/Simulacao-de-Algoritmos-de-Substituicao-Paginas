@@ -1,4 +1,3 @@
-
 #include "pagina.h"
 
 //---- Construtor
@@ -12,7 +11,6 @@ Pagina::Pagina(const Pagina &outro)
 
     this->quadros = outro.quadros;
     this->referencias = outro.referencias;
-    this->tempos = outro.tempos;
 }
 
 //---- Construtor padrão
@@ -21,7 +19,6 @@ Pagina::Pagina(int q, vector<int> &r)
     for (int i = 0; i < q; i++)
     {
         this->quadros.push_back(-1);
-        this->tempos.push_back(0);
     }
     for (int j = 0; j < r.size(); j++)
     {
@@ -38,18 +35,6 @@ Pagina::~Pagina()
 void Pagina::setQuadros(int r, int i)
 {
     this->quadros[i] = r;
-}
-
-//---- Altera o valor de tempo especificado
-void Pagina::setTempos(int r, int i)
-{
-    this->tempos[i] = r;
-}
-
-//---- Retorna o valor de tempo especificado
-int Pagina::getTempos(int i)
-{
-    return this->tempos[i];
 }
 
 //---- Retorna o valor de quadro especificado
@@ -74,22 +59,6 @@ int Pagina::getReferenciasSize()
 int Pagina::getQuadrosSize()
 {
     return this->quadros.size();
-}
-
-//---- Retorna a posição do menor tempo, do vetor de tempos
-int Pagina::getPosicaoMenorTempo()
-{
-    int aux = referencias.size() + 1, posicao = 0;
-    for (int j = 0; j < tempos.size(); j++)
-    {
-        if (tempos[j] < aux)
-        {
-            aux = tempos[j];
-            posicao = j;
-        }
-    }
-
-    return posicao;
 }
 
 //---- Verifica se o valor da referência já está dentro do vetor de quadros
@@ -124,7 +93,6 @@ void Pagina::reiniciaParametros()
     for (int i = 0; i < quadros.size(); i++)
     {
         this->quadros[i] = -1;
-        this->tempos[i] = 0;
     }
 }
 

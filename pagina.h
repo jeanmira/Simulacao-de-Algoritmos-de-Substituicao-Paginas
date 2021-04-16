@@ -12,7 +12,6 @@ class Pagina
 {
 private:
     vector<int> quadros;     // Simula os quadros
-    vector<int> tempos;      // Armazena o tempo que uma página foi adicionada ao quadro
     vector<int> referencias; // Armazena todas as referências que foram retiradas do arquivo .txt especificado
 
 public:
@@ -22,13 +21,10 @@ public:
     ~Pagina();                     // Destrutor padrão
 
     void setQuadros(int r, int i);                  // Altera o valor de quadro especificado
-    void setTempos(int r, int i);                   // Altera o valor de tempo especificado
-    int getTempos(int i);                           // Retorna o valor de tempo especificado
     int getQuadros(int i);                          // Retorna o valor de quadro especificado
     int getReferencias(int i);                      // Retorna o valor de referência especificado
     int getReferenciasSize();                       // Retorna o tamanho do vetor de referências
     int getQuadrosSize();                           // Retorna o tamanho do vetor de quadros
-    int getPosicaoMenorTempo();                     // Retorna a posição do menor tempo, do vetor de tempos
     bool verificaValorDeReferenciaEmQuadros(int i); // Verifica se o valor da referência já está dentro do vetor de quadros
     int getPosicaoDeReferenciaEmQuadros(int i);     // Retorna a posição que se encontra a referência dentro do vetor de quadros
     void reiniciaParametros();                      // Zera os quadros e tempos para próxima análise
