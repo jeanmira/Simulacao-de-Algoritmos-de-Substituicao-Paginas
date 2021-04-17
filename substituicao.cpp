@@ -12,7 +12,7 @@ Substituicao::~Substituicao()
 }
 
 //---- Método de substituição de página First In, First Out (FIFO)
-void Substituicao::fifo()
+int Substituicao::fifo()
 {
     P.reiniciaParametros(); // Zera os quadros e tempos para próxima análise
 
@@ -63,10 +63,11 @@ void Substituicao::fifo()
         }
     }
     cout << "FIFO: " << pf << " PFs" << endl;
+    return pf;
 }
 
 //---- Método de substituição de página Least Recently Used (LRU)
-void Substituicao::lru()
+int Substituicao::lru()
 {
     P.reiniciaParametros(); // Zera os quadros e tempos para próxima análise
 
@@ -126,10 +127,11 @@ void Substituicao::lru()
         }
     }
     cout << "LRU: " << pf << " PFs" << endl;
+    return pf;
 }
 
 //---- Método de substituição de página Algoritmo Ótimo (OPT)
-void Substituicao::opt()
+int Substituicao::opt()
 {
 
     P.reiniciaParametros(); // Zera os quadros e tempos para próxima análise
@@ -156,4 +158,5 @@ void Substituicao::opt()
         }
     }
     cout << "OPT: " << pf << " PFs" << endl;
+    return pf;
 }

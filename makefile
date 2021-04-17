@@ -20,6 +20,9 @@ O = *.o
 # Variáveis ou flag de Thread
 #THREAD = -lpthread
 
+# Variáveis ou flag modulo gráfico 
+GRAPHIC = -lsfml-graphics -lsfml-window -lsfml-system
+
 # Nome do executável
 EXE = simulador
 
@@ -40,15 +43,15 @@ limpa:
 # Compila e executa o programa
 run:
 	$(CC) $(FLAGS) -c $(APPNAME)
-	$(CC) $(FLAGS) -o $(EXE) $(O) $(THREAD)
+	$(CC) $(FLAGS) -o $(EXE) $(O) $(GRAPHIC) $(THREAD)
 #gdb 
 #./$(EXE)
+
+# Interface gráfica
 sfml:
 # https://github.com/andrew-r-king/sfml-vscode-boilerplate
 	sudo apt-get install build-essential
 	sudo apt-get install libsfml-dev
-	git clone https://github.com/andrew-r-king/sfml-vscode-boilerplate.git meuprojeto
-
 
 # Apaga todos os arquivos .o é o executável criado
 clean:
