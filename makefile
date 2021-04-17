@@ -43,6 +43,11 @@ run:
 	$(CC) $(FLAGS) -o $(EXE) $(O) $(THREAD)
 #gdb 
 #./$(EXE)
+sfml:
+# https://github.com/andrew-r-king/sfml-vscode-boilerplate
+	sudo apt-get install build-essential
+	sudo apt-get install libsfml-dev
+	git clone https://github.com/andrew-r-king/sfml-vscode-boilerplate.git meuprojeto
 
 
 # Apaga todos os arquivos .o é o executável criado

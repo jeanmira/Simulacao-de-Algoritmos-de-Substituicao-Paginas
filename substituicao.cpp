@@ -135,14 +135,24 @@ void Substituicao::opt()
     P.reiniciaParametros(); // Zera os quadros e tempos para próxima análise
 
     long int pf = 0;
+    vector<bool> q;
 
     for (int i = 0; i < P.getReferenciasSize(); i++)
     {
         // Se o valor de referência não está contido no vetor de quadros
         if (!P.verificaValorDeReferenciaEmQuadros(i))
         {
-            P.setQuadros(P.getReferencias(i), P.getMaiorDiferenca(i + 1)); // Adiciona o valor de referência no vetor de quadros
-            pf++;                                                          // Incrementa o page fault
+            if (q.size() < P.getQuadrosSize())
+            {
+                q.push_back(true);
+                P.setQuadros(P.getReferencias(i), q.size() - 1); // Adiciona o valor de referência no vetor de quadros
+                pf++;
+            } // Incrementa o page fault
+            else
+            {
+                P.setQuadros(P.getReferencias(i), P.getMaiorDiferenca(i + 1)); // Adiciona o valor de referência no vetor de quadros
+                pf++;
+            }
         }
     }
     cout << "OPT: " << pf << " PFs" << endl;

@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
     auto t_Depois = high_resolution_clock::now();              // Tempo depois
     duration<double, std::milli> t_Total = t_Depois - t_Antes; // Tempo real
-    // cout << "Tempo total de execução: " << t_Total.count() << " ms" << endl;
+    cout << "Tempo total de execução: " << t_Total.count() << " ms" << endl;
 
     return 0;
 }
