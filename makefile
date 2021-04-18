@@ -49,6 +49,7 @@ run:
 
 # Interface gráfica
 sfml:
+# https://www.sfml-dev.org/tutorials/2.5/start-linux.php
 # https://github.com/andrew-r-king/sfml-vscode-boilerplate
 	sudo apt-get install build-essential
 	sudo apt-get install libsfml-dev
