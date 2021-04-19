@@ -153,3 +153,7 @@ bool Pagina::getQuadrosCheio()
         return false;
     }
 }
+
+vector<int> Pagina::getVetorQuadros(){
+    return quadros;
+}

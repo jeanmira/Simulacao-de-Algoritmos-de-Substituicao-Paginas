@@ -1,5 +1,5 @@
 #include "substituicao.h"
-
+Interface ihm;
 //---- Construtor padrão
 Substituicao::Substituicao(Pagina P)
 {
@@ -14,6 +14,7 @@ Substituicao::~Substituicao()
 //---- Método de substituição de página First In, First Out (FIFO)
 int Substituicao::fifo()
 {
+    if(INTERFACE)ihm.setNumeroQuadros(this->P.getQuadrosSize(), "FIFO");
     P.reiniciaParametros(); // Zera os quadros e tempos para próxima análise
 
     queue<int> t;
@@ -32,6 +33,10 @@ int Substituicao::fifo()
             pf_ini++;                                  // Incrementa o page fault
         }
         j++;
+        if(INTERFACE){
+            ihm.imprime_Interface(P.getVetorQuadros(), pf_ini);
+            if(DELAY)usleep(1000000);
+        }
     }
 
     pf = pf_ini; // Inicia o page fault
@@ -61,6 +66,10 @@ int Substituicao::fifo()
 
             pf++; // Incrementa o page fault
         }
+        if(INTERFACE){
+            ihm.imprime_Interface(P.getVetorQuadros(), pf);
+            if(DELAY)usleep(1000000);
+        }
     }
     cout << "FIFO: " << pf << " PFs" << endl;
     return pf;
@@ -69,6 +78,7 @@ int Substituicao::fifo()
 //---- Método de substituição de página Least Recently Used (LRU)
 int Substituicao::lru()
 {
+    if(INTERFACE)ihm.setNumeroQuadros(this->P.getQuadrosSize(), "LRU");
     P.reiniciaParametros(); // Zera os quadros e tempos para próxima análise
 
     list<int> t;
@@ -92,6 +102,10 @@ int Substituicao::lru()
             t.push_back(P.getReferencias(j)); // E adiciona ele no final da lista
         }
         j++;
+        if(INTERFACE){
+            ihm.imprime_Interface(P.getVetorQuadros(), pf_ini);
+            if(DELAY)usleep(1000000);
+        }
     }
 
     pf = pf_ini; // Inicia o page fault
@@ -125,6 +139,10 @@ int Substituicao::lru()
             t.remove(P.getReferencias(i));    //  Se o valor de referência está contido no vetor de quadros retira o valor da lista
             t.push_back(P.getReferencias(i)); // E adiciona ele no final da lista
         }
+        if(INTERFACE){
+            ihm.imprime_Interface(P.getVetorQuadros(), pf);
+            if(DELAY)usleep(1000000);
+        }
     }
     cout << "LRU: " << pf << " PFs" << endl;
     return pf;
@@ -134,6 +152,7 @@ int Substituicao::lru()
 int Substituicao::opt()
 {
 
+    if(INTERFACE)ihm.setNumeroQuadros(this->P.getQuadrosSize(), "OPT");
     P.reiniciaParametros(); // Zera os quadros e tempos para próxima análise
 
     long int pf = 0;
@@ -155,6 +174,11 @@ int Substituicao::opt()
                 P.setQuadros(P.getReferencias(i), P.getMaiorDiferenca(i + 1)); // Adiciona o valor de referência no vetor de quadros
                 pf++;
             }
+            
+        }
+        if(INTERFACE){
+            ihm.imprime_Interface(P.getVetorQuadros(), pf);
+            if(DELAY)usleep(1000000);
         }
     }
     cout << "OPT: " << pf << " PFs" << endl;

@@ -1,12 +1,15 @@
 #ifndef SUBSTITUICAO_H
 #define SUBSTITUICAO_H
 
+
 #include <vector>
 #include <iostream>
 #include <string>
+#include <unistd.h>
 #include <queue>
 #include <list>
 #include "pagina.h"
+#include "interface.h"
 
 using namespace std;
 

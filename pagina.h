@@ -30,6 +30,7 @@ public:
     void reiniciaParametros();                      // Zera os quadros e tempos para próxima análise
     int getMaiorDiferenca(int inicial);             // Função que retorna a última referência a ser utilizada dado a posição inicial
     bool getQuadrosCheio();                         // Retorna verdadeiro ou falso para condição onde o vetor de quadros está cheio
+    vector<int> getVetorQuadros();                  // Retorna os quadros
 };
 
 #endif
