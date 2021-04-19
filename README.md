@@ -7,7 +7,7 @@
      • Execute o comando: make all (observação: somente se fizer alguma alteração visto que o programa já contém um executável)
      • Para executar no terminal digite ./execultavel depois informe a quantidade de quadros e o nome do arquivo .txt que contém as referências (exemplo: ./simulador 4 < vsim-gcc.txt)
      • Caso o usuário queira habilitar ou desabilitar a interface gráfica ou o delay que facilitar a visualização deve abrir o arquivo interface.h e mudar o valor da constante:
-          • Para executar a interface os parâmetros devem:
+          • Para executar a interface os parâmetros devem ser:
                #define INTERFACE 1
                #define DELAY 1
           • Para não executar a interface os parâmetros devem ser:
