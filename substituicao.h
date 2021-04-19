@@ -1,7 +1,6 @@
 #ifndef SUBSTITUICAO_H
 #define SUBSTITUICAO_H
 
-
 #include <vector>
 #include <iostream>
 #include <string>
@@ -22,9 +21,9 @@ private:
 public:
     Substituicao(Pagina P); // Construtor padrão
     ~Substituicao();        // Destrutor padrão
-    int fifo();            // Método de substituição de página First In, First Out (FIFO)
-    int lru();             // Método de substituição de página Least Recently Used (LRU)
-    int opt();             // Método de substituição de página Algoritmo Ótimo (OPT)
+    int fifo();             // Método de substituição de página First In, First Out (FIFO)
+    int lru();              // Método de substituição de página Least Recently Used (LRU)
+    int opt();              // Método de substituição de página Algoritmo Ótimo (OPT)
 };
 
 #endif

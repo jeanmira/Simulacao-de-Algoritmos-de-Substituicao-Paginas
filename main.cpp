@@ -30,7 +30,6 @@ int main(int argc, char *argv[])
     valorFifo = init.fifo(); // Análise do método de substituição de página First In, First Out (FIFO)
     valorLru = init.lru();   // Análise do método de substituição de página Least Recently Used (LRU)
     valorOpt = init.opt();   // Analise do método de substituição de página Algoritmo Ótimo (OPT)
-   
 
     return 0;
 }

@@ -154,6 +154,7 @@ bool Pagina::getQuadrosCheio()
     }
 }
 
-vector<int> Pagina::getVetorQuadros(){
+vector<int> Pagina::getVetorQuadros()
+{
     return quadros;
 }
