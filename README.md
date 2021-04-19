@@ -6,7 +6,7 @@
      • No ubuntu ou derivado abra o terminal, para uma melhor experiência expanda ao máximo a tela
      • Execute o comando: make all (observação: somente se fizer alguma alteração visto que o programa já contém um executável)
      • Para executar no terminal digite ./execultavel depois informe a quantidade de quadros e o nome do arquivo .txt que contém as referências (exemplo: ./simulador 4 < vsim-gcc.txt)
-     • Caso o usuário queira habilitar ou desabilitar a interface gráfica ou o delay que facilitar a visualização deve abrir o arquivo interface.h e mudar o valor da constante:
+     • Caso o usuário queira habilitar ou desabilitar a interface gráfica ou o delay que facilitar a visualização deve abrir o arquivo interface.h e mudar o valor da constante, sendo que o limite de quadros para análise gráfica e de 27 quadros(tamanho do terminal):
           • Para executar a interface os parâmetros devem ser:
                #define INTERFACE 1
                #define DELAY 1
