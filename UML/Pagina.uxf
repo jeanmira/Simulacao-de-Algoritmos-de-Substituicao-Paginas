@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>100</x>
-      <y>110</y>
+      <x>190</x>
+      <y>20</y>
       <w>380</w>
-      <h>300</h>
+      <h>310</h>
     </coordinates>
     <panel_attributes>Pagina	
 --
@@ -26,8 +26,9 @@
 + verificaValorDeReferenciaEmQuadros(i: int): bool
 + getPosicaoDeReferenciaEmQuadros(i: int): int   
 + reiniciaParametros(): void                   
-+ int getMaiorDiferenca(int inicial);            
-+ getQuadrosCheio(): bool</panel_attributes>
++ int getMaiorDiferenca(int inicial):           
++ getQuadrosCheio(): bool
++ getVetorQuadros(): vector&lt;int&gt; </panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

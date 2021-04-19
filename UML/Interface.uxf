@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>410</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>Interface
+--
+- tela: sf::RenderWindow 
+- font: sf::Font
+- text: vector&lt;sf::Text&gt;
+- text_Quadros: vector&lt;sf::Text&gt;
+- mem1_Quadros: vector&lt;int&gt; 
+- mem2_Quadros: vector&lt;int&gt; 
+- mem3_Quadros: vector&lt;int&gt; 
+- mem4_Quadros: vector&lt;int&gt; 
+- mem5_Quadros: vector&lt;int&gt; 
+- mem6_Quadros: vector&lt;int&gt; 
+- mem7_Quadros: vector&lt;int&gt; 
+- text_Ref: vector&lt;sf::Text&gt; 
+- event: sf::Event 
+- n_quadros: int
+--
++ Interface(): void
++ imprime_Interface(quadros: vector&lt;int&gt;, ref:int): void
++ setNumeroQuadros(n_quadros:int, sub: string): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>128</y>
+      <w>144</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>544</x>
+      <y>216</y>
+      <w>192</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Substituicao	
+--
+- P: Pagina
+- pf: vector&lt;int&gt; 
+--
++ Substituicao(P: Pagina): void
++ ~Substituicao(): void
++ void fifo(): void
++ void lru(): void
++ void opt(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>8</y>
+      <w>304</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>Pagina	
+--
+- quadros: vector&lt;int&gt;
+- referencias: vector&lt;int&gt;
+--
++ Pagina(): void                   
++ Pagina(&amp;outro: const Pagina): void 
++ Pagina(q: int, &amp;r: vector&lt;int&gt; ): void
++ ~Pagina(): void                    
++ setQuadros(r: int, i: int): void       
++ getQuadros(i: int): int                          
++ getReferencias(i: int): int                      
++ getReferenciasSize(): int                      
++ getQuadrosSize(): int                      
++ verificaValorDeReferenciaEmQuadros(i: int): bool
++ getPosicaoDeReferenciaEmQuadros(i: int): int   
++ reiniciaParametros(): void                   
++ int getMaiorDiferenca(int inicial):           
++ getQuadrosCheio(): bool
++ getVetorQuadros(): vector&lt;int&gt; </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>104</x>
+      <y>320</y>
+      <w>336</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>Interface
+--
+- tela: sf::RenderWindow 
+- font: sf::Font
+- text: vector&lt;sf::Text&gt;
+- text_Quadros: vector&lt;sf::Text&gt;
+- mem1_Quadros: vector&lt;int&gt; 
+- mem2_Quadros: vector&lt;int&gt; 
+- mem3_Quadros: vector&lt;int&gt; 
+- mem4_Quadros: vector&lt;int&gt; 
+- mem5_Quadros: vector&lt;int&gt; 
+- mem6_Quadros: vector&lt;int&gt; 
+- mem7_Quadros: vector&lt;int&gt; 
+- text_Ref: vector&lt;sf::Text&gt; 
+- event: sf::Event 
+- n_quadros: int
+--
++ Interface(): void
++ imprime_Interface(quadros: vector&lt;int&gt;, ref:int): void
++ setNumeroQuadros(n_quadros:int, sub: string): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>272</y>
+      <w>128</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;200.0;140.0;10.0</additional_attributes>
+  </element>
+</diagram>
