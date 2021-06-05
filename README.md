@@ -1,4 +1,4 @@
-# **Simulação de Algoritmos de Substituição de Páginas**
+# **Simulação de Algoritmos de Substituição de Páginas / Simulation of Page Replacement Algorithms**
 
 [![Generic badge](https://img.shields.io/badge/Status-Finalizado-<red>.svg)](https://shields.io/)
 
